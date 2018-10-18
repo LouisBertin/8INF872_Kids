@@ -19,4 +19,6 @@
         <activity android:name=".PaintActivity"></activity>
     </application>
 
+    <uses-permission android:name="android.permission.READ_PROFILE"/>
+
 </manifest>
