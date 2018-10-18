@@ -54,9 +54,6 @@ public class MainActivity extends AppCompatActivity {
     public void drawValue(View view) {
         String value = drawValue.getText().toString();
 
-        System.out.println(value);
-        System.out.println(randomLetter);
-
         if (value.equals(randomLetter.toLowerCase())) {
 
             score++;
