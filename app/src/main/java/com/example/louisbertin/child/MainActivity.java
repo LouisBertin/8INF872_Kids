@@ -1,7 +1,6 @@
 package com.example.louisbertin.child;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,8 +13,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.louisbertin.child.helpers.StringHelper;
-
-import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
