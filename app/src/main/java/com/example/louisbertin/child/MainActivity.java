@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void drawValue(View view) {
-        guess.drawValue();
+        guess.checkIfEquals();
     }
 
     /**

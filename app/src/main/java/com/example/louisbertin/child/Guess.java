@@ -13,7 +13,7 @@ public class Guess {
 
     protected TextView drawMe, scoreTextView, timer, drawValue;
     protected Button go, replay;
-    protected String randomLetter, randomLetter1;
+    protected String stringToDisplay;
     protected int score;
     CountDownTimer countDownTimer;
     protected Activity currentActivity;
@@ -38,9 +38,9 @@ public class Guess {
      * initialisation
      */
     private void initDrawMe() {
-        randomLetter = StringHelper.generateRandomCharacter();
+        stringToDisplay = StringHelper.generateRandomCharacter();
 
-        drawMe.setText(randomLetter);
+        drawMe.setText(stringToDisplay);
         drawMe.setTextColor(StringHelper.generateRandomColor());
         drawMe.animate().alpha(1).rotation(360).setDuration(2000);
     }
@@ -65,24 +65,24 @@ public class Guess {
         }.start();
     }
 
-    protected void drawValue() {
+    protected void checkIfEquals() {
         String value = drawValue.getText().toString();
 
-        if (value.equals(randomLetter.toLowerCase())) {
-
+        if (value.equals(stringToDisplay.toLowerCase())) {
             score++;
             String scoreString = Integer.toString(score);
             scoreTextView.setText(scoreString);
 
-            randomLetter = StringHelper.generateRandomCharacter();
-            drawMe.setTextColor(StringHelper.generateRandomColor());
-
             if (score > 4) {
-                randomLetter1 = StringHelper.generateRandomCharacter();
-
-                drawMe.setText(randomLetter + randomLetter1);
+                String randomLetter = StringHelper.generateRandomCharacter();
+                String randomLetter2 = StringHelper.generateRandomCharacter();
+                stringToDisplay = randomLetter + randomLetter2;
+                drawMe.setText(stringToDisplay);
+                drawMe.setTextColor(StringHelper.generateRandomColor());
             } else {
-                drawMe.setText(randomLetter);
+                stringToDisplay = StringHelper.generateRandomCharacter();
+                drawMe.setText(stringToDisplay);
+                drawMe.setTextColor(StringHelper.generateRandomColor());
             }
 
             drawMe.clearAnimation();
@@ -91,7 +91,9 @@ public class Guess {
             drawValue.setText(null);
             this.countDownTimer.start();
         } else {
+            drawValue.setText(null);
             Toast.makeText(currentActivity, "Essaye encore!", Toast.LENGTH_SHORT).show();
         }
     }
+
 }
