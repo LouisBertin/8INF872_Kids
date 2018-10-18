@@ -15,6 +15,7 @@
 
 # Built application files
 *.apk
+!app/release/app-release.apk
 *.ap_
 
 # Files for the ART/Dalvik VM
